@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -10,5 +10,6 @@ export class CardComponent {
   pokemonWeight = 600
   pokemonHeight = 40
   pokemonType = 'Electric'
+  pokemonImage = 'assets/pikachu.png'
 
 }

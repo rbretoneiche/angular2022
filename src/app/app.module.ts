@@ -4,6 +4,9 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {PokemonModule} from "./modules/pokemon/pokemon.module";
+import {RouterModule} from "@angular/router";
+import {PokemonListComponent} from "./modules/pokemon/components/pokemon-list/pokemon-list.component";
+import {PokemonDetailComponent} from "./modules/pokemon/components/pokemon-detail/pokemon-detail.component";
 
 @NgModule({
   declarations: [
@@ -12,7 +15,16 @@ import {PokemonModule} from "./modules/pokemon/pokemon.module";
   imports: [
     BrowserModule,
     NgbModule,
-    PokemonModule
+    PokemonModule,
+    RouterModule.forRoot([
+      {
+        path: 'pokemon/:name',
+        component: PokemonDetailComponent
+      },
+      {
+        path: '',
+        component: PokemonListComponent
+      }])
   ],
   providers: [],
   bootstrap: [AppComponent]

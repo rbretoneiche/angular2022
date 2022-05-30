@@ -1,14 +1,4 @@
 <div class="row">
-  <app-card class="col-2"
-            [pokemonName]="'Pikachu'"
-            [pokemonHeight]="40"
-            [pokemonImage]="'assets/pikachu.png'"
-            [pokemonWeight]="600"
-            [pokemonType]="'Electric'"></app-card>
-  <app-card class="col-2"
-            [pokemonName]="'Bulbasaur'"
-            [pokemonHeight]="70"
-            [pokemonImage]="'assets/bulbi.svg'"
-            [pokemonWeight]="690"
-            [pokemonType]="'Grass'"></app-card>
+  <app-card class="col-2" [pokemon]="pikachu"></app-card>
+  <app-card class="col-2" [pokemon]="bulbasaur"></app-card>
 </div>

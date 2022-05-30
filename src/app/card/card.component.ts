@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {PokemonInterface} from "../interfaces/pokemon.interface";
 
 @Component({
   selector: 'app-card',
@@ -6,10 +7,5 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-  @Input() pokemonName?: string
-  @Input() pokemonWeight?: number
-  @Input() pokemonHeight?: number
-  @Input() pokemonType?: string
-  @Input() pokemonImage?: string
-
+  @Input() pokemon?: PokemonInterface
 }

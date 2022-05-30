@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {PokemonInterface} from "../interfaces/pokemon.interface";
 
 @Component({
@@ -8,4 +8,10 @@ import {PokemonInterface} from "../interfaces/pokemon.interface";
 })
 export class CardComponent {
   @Input() pokemon?: PokemonInterface
+  @Input() selectedPokemon?: PokemonInterface
+  @Output() selectedPokemonChanges = new EventEmitter<PokemonInterface>();
+
+  handleClick() {
+    this.selectedPokemonChanges.emit(this.pokemon)
+  }
 }

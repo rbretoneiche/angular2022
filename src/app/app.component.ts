@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PokemonInterface} from "./interfaces/pokemon.interface";
 
 @Component({
@@ -6,7 +6,7 @@ import {PokemonInterface} from "./interfaces/pokemon.interface";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   pokemons: PokemonInterface[] = [
     {
       name: 'Pikachu',
@@ -23,4 +23,14 @@ export class AppComponent {
       type: 'Grass'
     }
   ]
+
+  selectedPokemon?: PokemonInterface;
+
+  ngOnInit(): void {
+    this.selectedPokemon = this.pokemons[0]
+  }
+
+  handlePokemonChange(pokemon: PokemonInterface) {
+    this.selectedPokemon = pokemon
+  }
 }

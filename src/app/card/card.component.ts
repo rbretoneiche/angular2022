@@ -6,10 +6,10 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-  pokemonName = 'Pikachu'
-  pokemonWeight = 600
-  pokemonHeight = 40
-  pokemonType = 'Electric'
-  pokemonImage = 'assets/pikachu.png'
+  @Input() pokemonName = 'Pikachu'
+  @Input() pokemonWeight = 600
+  @Input() pokemonHeight = 40
+  @Input() pokemonType = 'Electric'
+  @Input() pokemonImage = 'assets/pikachu.png'
 
 }

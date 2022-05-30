@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   pokemons?: PokemonInterface[];
   selectedPokemon?: PokemonInterface;
-
+  pokemon!:PokemonInterface
   ngOnInit(): void {
     this.pokemons = this.pokemonService.getPokemon();
   }
@@ -22,4 +22,5 @@ export class AppComponent implements OnInit {
     this.pokemonService.selectPokemon(pokemon);
     this.selectedPokemon = this.pokemonService.getSelectedPokemon()
   }
+  doSomething(){}
 }

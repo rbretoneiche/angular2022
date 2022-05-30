@@ -13,7 +13,7 @@ export class PokemonDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(data => this.pokemonName = data['name'])
+    this.pokemonName = this.route.snapshot.paramMap.get('name') || '';
   }
 
 }

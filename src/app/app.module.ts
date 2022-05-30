@@ -17,14 +17,16 @@ import {PokemonDetailComponent} from "./modules/pokemon/components/pokemon-detai
     NgbModule,
     PokemonModule,
     RouterModule.forRoot([
+      {path: '', redirectTo: '/accueil', pathMatch: 'full'},
       {
         path: 'pokemon/:name',
-        component: PokemonDetailComponent
+        component: PokemonDetailComponent,
       },
       {
-        path: '',
+        path: 'accueil',
         component: PokemonListComponent
-      }])
+      },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

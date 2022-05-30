@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {PokemonInterface} from "../interfaces/pokemon.interface";
+import {PokemonInterface} from "../../interfaces/pokemon.interface";
 
 @Component({
   selector: 'app-card',

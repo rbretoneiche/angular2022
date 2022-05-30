@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {PokemonInterface} from "./interfaces/pokemon.interface";
-import {PokemonService} from "./services/pokemon.service";
+import {PokemonInterface} from "./modules/pokemon/interfaces/pokemon.interface";
+import {PokemonService} from "./modules/pokemon/services/pokemon.service";
 
 @Component({
   selector: 'app-root',

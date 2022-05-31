@@ -6,6 +6,7 @@ import {PokemonListComponent} from './components/pokemon-list/pokemon-list.compo
 import {PokemonDetailComponent} from './components/pokemon-detail/pokemon-detail.component';
 import {RouterModule} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
+import { TypeColorPipe } from './pipes/type-color.pipe';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import {HttpClientModule} from "@angular/common/http";
     HoverBackgroundDirective,
     PokemonListComponent,
     PokemonDetailComponent,
+    TypeColorPipe,
   ],
   exports: [
     CardComponent

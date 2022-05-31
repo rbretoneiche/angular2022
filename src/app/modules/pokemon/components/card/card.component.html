@@ -2,7 +2,7 @@
      appHoverBackground>
   <img class="card-img-top" [src]="pokemon.picture" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title" style="color: {{pokemon.type|typeColor}}">{{pokemon.name}}</h5>
+    <h5 class="card-title" style="color: {{pokemon.type | typeColor : pokemon.name}}">{{pokemon.name}}</h5>
     <p class="card-text">Pokemon type : {{pokemon.type}}</p>
     <p class="card-text">Weight : {{pokemon.weight}} gramms</p>
     <p class="card-text">Height : {{pokemon.height}} cm</p>

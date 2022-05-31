@@ -5,7 +5,10 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class TypeColorPipe implements PipeTransform {
 
-  transform(pokemonType: string): string {
+  transform(pokemonType: string, pokemonName?: string): string {
+    if (pokemonName === 'Pikachu') {
+      return 'red'
+    }
     switch (pokemonType) {
       case 'Electric':
         return 'gold'

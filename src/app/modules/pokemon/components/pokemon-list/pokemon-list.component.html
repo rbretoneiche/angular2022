@@ -1,9 +1,8 @@
 <div class="row">
-  <app-card class="col-2" *ngFor="let pokemon of pokemons"
+  <app-card class="col-2" *ngFor="let pokemon of pokemons$|async"
             [pokemon]="pokemon"
             [selectedPokemon]="selectedPokemon"
             (selectedPokemonChanges)="handlePokemonChange($event)"
             [routerLink]="'/pokemon/' + pokemon.name">
   </app-card>
 </div>
-

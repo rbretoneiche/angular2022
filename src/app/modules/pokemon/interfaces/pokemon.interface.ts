@@ -3,5 +3,5 @@ export interface PokemonInterface {
   weight?: number
   height?: number
   type?: string
-  image?: string
+  picture?: string
 }

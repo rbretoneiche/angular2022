@@ -5,6 +5,7 @@ import {HoverBackgroundDirective} from "./directives/hover-background.directive"
 import {PokemonListComponent} from './components/pokemon-list/pokemon-list.component';
 import {PokemonDetailComponent} from './components/pokemon-detail/pokemon-detail.component';
 import {RouterModule} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {RouterModule} from "@angular/router";
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ]
 })
 export class PokemonModule {

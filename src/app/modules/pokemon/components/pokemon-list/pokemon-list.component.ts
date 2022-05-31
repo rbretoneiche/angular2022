@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PokemonService} from "../../services/pokemon.service";
 import {PokemonInterface} from "../../interfaces/pokemon.interface";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-pokemon-list',
@@ -11,11 +12,11 @@ export class PokemonListComponent implements OnInit {
   constructor(private pokemonService: PokemonService) {
   }
 
-  pokemons?: PokemonInterface[];
+  pokemons$?: Observable<PokemonInterface[]>;
   selectedPokemon?: PokemonInterface;
 
   ngOnInit(): void {
-    this.pokemons = this.pokemonService.getPokemon();
+    this.pokemons$ = this.pokemonService.getPokemon();
   }
 
   handlePokemonChange(pokemon: PokemonInterface) {

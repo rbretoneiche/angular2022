@@ -7,6 +7,8 @@ import {PokemonModule} from "./modules/pokemon/pokemon.module";
 import {RouterModule} from "@angular/router";
 import {PokemonListComponent} from "./modules/pokemon/components/pokemon-list/pokemon-list.component";
 import {PokemonDetailComponent} from "./modules/pokemon/components/pokemon-detail/pokemon-detail.component";
+import {LoginComponent} from "./modules/login/components/login/login.component";
+import {LoginModule} from "./modules/login/login.module";
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import {PokemonDetailComponent} from "./modules/pokemon/components/pokemon-detai
     BrowserModule,
     NgbModule,
     PokemonModule,
+    LoginModule,
     RouterModule.forRoot([
       {
         path: 'pokemon/:name',
@@ -24,6 +27,10 @@ import {PokemonDetailComponent} from "./modules/pokemon/components/pokemon-detai
       {
         path: 'accueil',
         component: PokemonListComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
       },
       {path: '', redirectTo: 'accueil', pathMatch: 'full'},
       {path: '**', redirectTo: 'accueil'},

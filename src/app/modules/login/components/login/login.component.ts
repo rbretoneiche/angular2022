@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AuthInterface, AuthService} from "../../services/auth.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,12 @@ export class LoginComponent {
     password: new FormControl('', Validators.required)
   })
 
+  authData$?: Observable<AuthInterface>
+
+  constructor(private authService: AuthService) {
+  }
+
   submit() {
-    console.log(this.loginForm.value)
+    this.authData$ = this.authService.login(this.loginForm.value.email, this.loginForm.value.password);
   }
 }

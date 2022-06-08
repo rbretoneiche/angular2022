@@ -9,6 +9,8 @@ import {PokemonListComponent} from "./modules/pokemon/components/pokemon-list/po
 import {PokemonDetailComponent} from "./modules/pokemon/components/pokemon-detail/pokemon-detail.component";
 import {LoginComponent} from "./modules/login/components/login/login.component";
 import {LoginModule} from "./modules/login/login.module";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {AuthInterceptor} from "./modules/login/interceptors/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -36,7 +38,13 @@ import {LoginModule} from "./modules/login/login.module";
       {path: '**', redirectTo: 'accueil'},
     ])
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

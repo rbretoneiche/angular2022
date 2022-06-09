@@ -10,7 +10,7 @@ import {Observable} from "rxjs";
 })
 export class LoginComponent {
   loginForm = new FormGroup({
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required)
   })
 
@@ -20,6 +20,8 @@ export class LoginComponent {
   }
 
   submit() {
-    this.authData$ = this.authService.login(this.loginForm.value.email, this.loginForm.value.password);
+    if (this.loginForm.valid) {
+      this.authData$ = this.authService.login(this.loginForm.value.email, this.loginForm.value.password);
+    }
   }
 }

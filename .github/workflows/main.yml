@@ -5,27 +5,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Cache node modules
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Node ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
+      - name: Install dependancies
+        run: npm i
       - name: Install dependencies
         run: npm ci
       - name: Build
         run: npm run build:ci
+  jasmine-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependancies
+        run: npm i
       - name: Test UT
         run: npm run test:ci
   cypress-run:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
+      - name: Install dependancies
+        run: npm i
       - uses: actions/checkout@v2
       - uses: cypress-io/github-action@v4
-        with:
-          headless: true

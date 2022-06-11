@@ -1,5 +1,5 @@
 <div class="row">
-  <app-card class="col" *ngFor="let pokemon of pokemons$|async"
+  <app-card class="col" *ngFor="let pokemon of pokemons$|async; trackBy:trackByIdentity"
             [pokemon]="pokemon"
             [selectedPokemon]="selectedPokemon"
             (selectedPokemonChanges)="handlePokemonChange($event)"

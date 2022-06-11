@@ -1,4 +1,20 @@
 .card {
   width: 18rem;
   margin: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-height: 24rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #000066;
+
+  .card-img-top {
+    margin: 0 auto;
+    width: fit-content;
+    min-height: 8rem;
+  }
+
+  .card-body {
+  }
 }

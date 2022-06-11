@@ -14,6 +14,7 @@ export class PokemonListComponent implements OnInit {
 
   pokemons$?: Observable<PokemonInterface[]>;
   selectedPokemon?: PokemonInterface;
+  trackByIdentity = (index: number, item: PokemonInterface) => item.id;
 
   ngOnInit(): void {
     this.pokemons$ = this.pokemonService.getPokemon();
@@ -23,4 +24,5 @@ export class PokemonListComponent implements OnInit {
     this.pokemonService.selectPokemon(pokemon);
     this.selectedPokemon = this.pokemonService.getSelectedPokemon()
   }
+
 }

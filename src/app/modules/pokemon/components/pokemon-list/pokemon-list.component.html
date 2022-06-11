@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" data-cy="pokemon-list">
   <app-card class="col" *ngFor="let pokemon of pokemons$|async"
             [pokemon]="pokemon"
             [selectedPokemon]="selectedPokemon"

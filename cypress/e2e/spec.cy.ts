@@ -1,4 +1,4 @@
-describe('My First Test', () => {
+describe('Test pokemon app homepage', () => {
   it('Visits the initial project page', () => {
     cy.visit('/')
     cy.get('[data-cy=pokemon-list]')

@@ -15,7 +15,6 @@ export class PokemonService {
   getPokemon(): Observable<PokemonInterface[]> {
     // @ts-ignore
     return this.httpClient.get(`${environment.apiUrl}/items/pokemon`).pipe(map(result => result.data))
-
   }
 
   getSelectedPokemon(): PokemonInterface | undefined {

@@ -10,8 +10,8 @@
     "e2e": "ng e2e",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "build:ci": "ng build --prod --sourceMap=false --base-href /angular2022/",
-    "test:ci": "ng test --watch=false --code-coverage --source-map true"
+    "build:ci": "ng build --sourceMap=false --base-href /angular2022/",
+    "test:ci": "ng test --browsers ChromeHeadless"
   },
   "private": true,
   "dependencies": {

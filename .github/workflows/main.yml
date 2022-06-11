@@ -6,10 +6,8 @@ jobs:
     strategy:
       matrix:
         node-version: [17.x]
-
     steps:
       - uses: actions/checkout@v1
-
       - name: Cache node modules
         uses: actions/cache@v1
         with:
@@ -24,7 +22,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build
-        run: npm run build:ci
+        run: |
+        npm run build:ci
+        npm run build:e2e
       - name: Test
         run: npm run test:ci
       - name: Archive build

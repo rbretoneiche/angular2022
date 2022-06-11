@@ -14,7 +14,7 @@ describe('PokemonService', () => {
     service = TestBed.inject(PokemonService);
   });
 
-  it('should be created', fakeAsync(() => {
+  it('should return a list of pokemons', fakeAsync(() => {
     expect(service).toBeTruthy();
     service.getPokemon().subscribe((_pokemons) => {
       expect(pokemons).toEqual([

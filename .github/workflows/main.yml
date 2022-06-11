@@ -14,6 +14,7 @@ jobs:
   jasmine-run:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - name: Install dependancies
         run: npm i
       - name: Test UT
@@ -21,6 +22,7 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - name: Install dependancies
         run: npm i
       - uses: actions/checkout@v2

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {PokemonService} from "../../services/pokemon.service";
 import {PokemonInterface} from "../../interfaces/pokemon.interface";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-pokemon-list',

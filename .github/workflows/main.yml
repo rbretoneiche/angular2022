@@ -5,8 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Install dependancies
-        run: npm i
       - name: Install dependencies
         run: npm ci
       - name: Build
@@ -16,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install dependancies
-        run: npm i
+        run: npm ci
       - name: Test UT
         run: npm run test:ci
   cypress-run:
@@ -24,6 +22,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install dependancies
-        run: npm i
+        run: npm ci
       - uses: actions/checkout@v2
       - uses: cypress-io/github-action@v4
+        with:
+          build: npm run build
+          start: npm start
+          command: yarn cypress run --headed --browser chrome

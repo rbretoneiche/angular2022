@@ -7,7 +7,7 @@ import {PokemonModule} from "./modules/pokemon/pokemon.module";
 import {RouterModule} from "@angular/router";
 import {PokemonListComponent} from "./modules/pokemon/components/pokemon-list/pokemon-list.component";
 import {PokemonDetailComponent} from "./modules/pokemon/components/pokemon-detail/pokemon-detail.component";
-import {LoginComponent} from "./modules/login/components/login/login.component";
+import {LoginFormComponent} from "./modules/login/components/login/login-form.component";
 import {LoginModule} from "./modules/login/login.module";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {AuthInterceptor} from "./modules/login/interceptors/auth.interceptor";
@@ -23,16 +23,16 @@ import {AuthInterceptor} from "./modules/login/interceptors/auth.interceptor";
     LoginModule,
     RouterModule.forRoot([
       {
+        path: 'login',
+        loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule),
+      },
+      {
         path: 'pokemon/:name',
         component: PokemonDetailComponent,
       },
       {
         path: 'accueil',
         component: PokemonListComponent
-      },
-      {
-        path: 'login',
-        component: LoginComponent
       },
       {path: '', redirectTo: 'accueil', pathMatch: 'full'},
       {path: '**', redirectTo: 'accueil'},

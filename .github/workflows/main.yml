@@ -23,19 +23,13 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build:ci
-      - name: Test
-        run: |
-          npm run test:ci
-          npm run ci:e2e
-      - name: Archive build
-        if: success()
-        uses: actions/upload-artifact@v1
+      - name: Test UT
+        run: npm run test:ci
+      - name: Test E2E
+      - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v2
         with:
-          name: deploy_dist
-          path: dist
-      - name: Archive code coverage result
-        if: success()
-        uses: actions/upload-artifact@v1
-        with:
-          name: deploy_coverage
-          path: coverage
+          start: npm start
+          wait-on: "http://localhost:5000"
+          browser: chrome
+          headless: true

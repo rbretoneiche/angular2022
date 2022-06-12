@@ -1,10 +1,16 @@
 <div class="card" *ngIf="pokemon" [ngClass]="{'border-primary': selectedPokemon === pokemon}" (click)="handleClick()"
+     [routerLink]="'/pokemon/' + pokemon.name"
      appHoverBackground>
-  <img class="card-img-top" [src]="pokemon.picture" alt="Card image cap">
+  <img class="card-img-top" src="assets/background.png" alt="Card image cap">
+  <div class="avatar">
+    <div class="avatar-img" [style.background-image]="'url(' + pokemon.picture + ')'"></div>
+  </div>
   <div class="card-body">
     <h5 class="card-title" style="color: {{pokemon.type | typeColor : pokemon.name}}">{{pokemon.name}}</h5>
-    <p class="card-text">Pokemon type : {{pokemon.type}}</p>
     <p class="card-text">Weight : {{pokemon.weight}} gramms</p>
     <p class="card-text">Height : {{pokemon.height}} cm</p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Pokemon type : {{pokemon.type}}</small>
   </div>
 </div>

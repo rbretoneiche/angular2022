@@ -13,6 +13,7 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {AuthInterceptor} from "./modules/login/interceptors/auth.interceptor";
 import {IsAuthenticatedGuard} from "./guards/is-authenticated.guard";
 import {IsNotAuthenticatedGuard} from "./guards/is-not-authenticated.guard";
+import {ErrorInterceptor} from "./modules/login/interceptors/error.interceptor";
 
 @NgModule({
   declarations: [
@@ -47,6 +48,10 @@ import {IsNotAuthenticatedGuard} from "./guards/is-not-authenticated.guard";
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true
+    }, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
       multi: true
     }
   ],

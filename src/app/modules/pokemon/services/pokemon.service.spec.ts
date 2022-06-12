@@ -1,8 +1,7 @@
-import {fakeAsync, TestBed} from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 import {PokemonService} from "./pokemon.service";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {async, of} from "rxjs";
 import {HttpClientModule} from "@angular/common/http";
+import {AuthService} from "../../login/services/auth.service";
 
 const mockResponse = [
   {
@@ -153,19 +152,23 @@ const mockResponse = [
 
 describe('PokemonService', () => {
   let service: PokemonService;
+  let authService: AuthService;
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
     });
     service = TestBed.inject(PokemonService);
+    authService = TestBed.inject(AuthService);
   });
 
   it('#getObservableValue should return value from observable',
     (done: DoneFn) => {
-      service.getPokemon().subscribe(pokemonList => {
-        expect(pokemonList.length).toEqual(mockResponse.length);
-        expect(pokemonList).toEqual(mockResponse);
-        done();
+      authService.login('sacha1@pokemon-form.fr', '123456789').subscribe(() => {
+        service.getPokemon().subscribe(pokemonList => {
+          expect(pokemonList.length).toEqual(mockResponse.length);
+          expect(pokemonList).toEqual(mockResponse);
+          done();
+        });
       });
     });
 });

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {PokemonService} from "../../services/pokemon.service";
 import {PokemonInterface} from "../../interfaces/pokemon.interface";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-pokemon-list',
@@ -14,6 +15,7 @@ export class PokemonListComponent implements OnInit {
 
   pokemons$?: Observable<PokemonInterface[]>;
   selectedPokemon?: PokemonInterface;
+  trackByIdentity = (index: number, item: PokemonInterface) => item.id;
 
   ngOnInit(): void {
     this.pokemons$ = this.pokemonService.getPokemon();
@@ -23,4 +25,5 @@ export class PokemonListComponent implements OnInit {
     this.pokemonService.selectPokemon(pokemon);
     this.selectedPokemon = this.pokemonService.getSelectedPokemon()
   }
+
 }

@@ -1,4 +1,5 @@
 export interface PokemonInterface {
+  id: string
   name: string
   weight: number
   height: number

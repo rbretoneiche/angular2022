@@ -1,8 +1,7 @@
 <div class="row" data-cy="pokemon-list">
-  <app-card class="col" *ngFor="let pokemon of pokemons$|async"
+  <app-card class="col" *ngFor="let pokemon of pokemons$|async; trackBy:trackByIdentity"
             [pokemon]="pokemon"
             [selectedPokemon]="selectedPokemon"
-            (selectedPokemonChanges)="handlePokemonChange($event)"
-            [routerLink]="'/pokemon/' + pokemon.name">
+            (selectedPokemonChanges)="handlePokemonChange($event)">
   </app-card>
 </div>

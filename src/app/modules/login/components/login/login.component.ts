@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthInterface, AuthService} from "../../services/auth.service";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -16,12 +17,16 @@ export class LoginComponent {
 
   authData$?: Observable<AuthInterface>
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
   }
 
   submit() {
     if (this.loginForm.valid) {
-      this.authData$ = this.authService.login(this.loginForm.value.email, this.loginForm.value.password);
+      this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(data => {
+        if (data) {
+          this.router.navigateByUrl('/')
+        }
+      })
     }
   }
 }

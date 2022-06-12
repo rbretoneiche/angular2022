@@ -13,8 +13,7 @@ export class IsAuthenticatedGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log(this.authService.authToken)
-    if (this.authService.authToken !== '') {
+    if (!this.authService.authToken.length) {
       return this.router.parseUrl('/login');
     }
     return true;

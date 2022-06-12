@@ -13,8 +13,7 @@ export class IsNotAuthenticatedGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log(this.authService.authToken)
-    if (this.authService.authToken === '') {
+    if (!this.authService.authToken.length) {
       return true;
     }
     return this.router.parseUrl('/');

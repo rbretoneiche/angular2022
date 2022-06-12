@@ -11,6 +11,7 @@ import {LoginComponent} from "./modules/login/components/login/login.component";
 import {LoginModule} from "./modules/login/login.module";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {AuthInterceptor} from "./modules/login/interceptors/auth.interceptor";
+import {ErrorInterceptor} from "./modules/login/interceptors/error.interceptor";
 
 @NgModule({
   declarations: [
@@ -42,6 +43,10 @@ import {AuthInterceptor} from "./modules/login/interceptors/auth.interceptor";
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true
+    }, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
       multi: true
     }
   ],

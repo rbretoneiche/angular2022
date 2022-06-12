@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../../environments/environment";
 import {map, Observable, take} from "rxjs";
+import {Router} from "@angular/router";
 
 export interface AuthInterface {
   data: {
@@ -23,7 +24,7 @@ export class AuthService {
     return localStorage.getItem('pokemon-token') || '';
   }
 
-  login(email: string, password: string): Observable<AuthInterface> {
+  login(email: string, password: string): Observable<AuthInterface | null> {
     if (!email || !password) {
       throw Error('Incorrect call');
     }
@@ -34,8 +35,11 @@ export class AuthService {
     }).pipe(take(1))
       .pipe(map((result) => {
         const authData = result as AuthInterface;
-        localStorage.setItem('pokemon-token', authData.data.access_token);
-        return authData;
+        if (authData.data.access_token) {
+          localStorage.setItem('pokemon-token', authData.data.access_token);
+          return authData;
+        }
+        return null;
       }));
   }
 

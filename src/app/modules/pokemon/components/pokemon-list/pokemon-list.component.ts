@@ -3,6 +3,7 @@ import {PokemonService} from "../../services/pokemon.service";
 import {PokemonInterface} from "../../interfaces/pokemon.interface";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {AuthService} from "../../../login/services/auth.service";
 
 @Component({
   selector: 'app-pokemon-list',
@@ -10,7 +11,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./pokemon-list.component.scss']
 })
 export class PokemonListComponent implements OnInit {
-  constructor(private pokemonService: PokemonService) {
+  constructor(private pokemonService: PokemonService, private authService: AuthService, private router: Router) {
   }
 
   pokemons$?: Observable<PokemonInterface[]>;
@@ -26,4 +27,8 @@ export class PokemonListComponent implements OnInit {
     this.selectedPokemon = this.pokemonService.getSelectedPokemon()
   }
 
+  logout(): void {
+    this.authService.logout();
+    this.router.navigateByUrl('/login');
+  }
 }

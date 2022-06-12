@@ -11,6 +11,8 @@ import {LoginFormComponent} from "./modules/login/components/login/login-form.co
 import {LoginModule} from "./modules/login/login.module";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {AuthInterceptor} from "./modules/login/interceptors/auth.interceptor";
+import {IsAuthenticatedGuard} from "./guards/is-authenticated.guard";
+import {IsNotAuthenticatedGuard} from "./guards/is-not-authenticated.guard";
 
 @NgModule({
   declarations: [
@@ -25,14 +27,17 @@ import {AuthInterceptor} from "./modules/login/interceptors/auth.interceptor";
       {
         path: 'login',
         loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule),
+        canActivate: [IsNotAuthenticatedGuard]
       },
       {
         path: 'pokemon/:name',
         component: PokemonDetailComponent,
+        canActivate: [IsAuthenticatedGuard]
       },
       {
         path: 'accueil',
-        component: PokemonListComponent
+        component: PokemonListComponent,
+        canActivate: [IsAuthenticatedGuard]
       },
       {path: '', redirectTo: 'accueil', pathMatch: 'full'},
       {path: '**', redirectTo: 'accueil'},

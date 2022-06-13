@@ -21,4 +21,3 @@ describe('Test pokemon app homepage', () => {
     })
   })
 })
-

@@ -1,14 +1,16 @@
-import {Directive, HostBinding, HostListener} from '@angular/core';
+import {Directive, HostBinding, HostListener, Input} from '@angular/core';
 
 @Directive({
   selector: '[appHoverBackground]'
 })
 export class HoverBackgroundDirective {
 
+  @Input('appHoverBackground') color = 'white'
+
   @HostBinding('style.background') background: string = 'white';
 
   @HostListener('mouseenter') onMouseEnter() {
-    this.setBgColor('lavender')
+    this.setBgColor(this.color)
   }
 
   @HostListener('mouseleave') onMouseLeave() {

@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthInterface, AuthService} from "../../services/auth.service";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {NotifierService} from "angular-notifier";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginFormComponent {
 
   authData$?: Observable<AuthInterface>
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private notifierService: NotifierService, private authService: AuthService, private router: Router) {
   }
 
   submit() {

@@ -1,5 +1,4 @@
-<div class="card" *ngIf="pokemon" [ngClass]="{'border-primary': selectedPokemon === pokemon}" (click)="handleClick()"
-     appHoverBackground>
+<div class="card" [appHoverBackground]="'yellow'" *ngIf="pokemon" [ngClass]="{'border-primary': selectedPokemon === pokemon}" (click)="handleClick()">
   <img class="card-img-top" [src]="pokemon.picture" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title"

@@ -14,6 +14,7 @@ import {AuthInterceptor} from "./modules/login/interceptors/auth.interceptor";
 import {IsAuthenticatedGuard} from "./guards/is-authenticated.guard";
 import {IsNotAuthenticatedGuard} from "./guards/is-not-authenticated.guard";
 import {ErrorInterceptor} from "./modules/login/interceptors/error.interceptor";
+import {NotifierModule} from "angular-notifier";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {ErrorInterceptor} from "./modules/login/interceptors/error.interceptor";
   imports: [
     BrowserModule,
     NgbModule,
+    NotifierModule,
     PokemonModule,
     LoginModule,
     RouterModule.forRoot([

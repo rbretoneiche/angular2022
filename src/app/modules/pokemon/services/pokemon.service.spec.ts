@@ -22,6 +22,14 @@ const mockResponse = [
     "type": "Electric"
   },
   {
+    "id": "06c8805e-5157-4dde-9aa9-0f7dad920e4b",
+    "name": "Marisson",
+    "height": 0.4,
+    "weight": 9,
+    "picture": "https://www.pokemontrash.com/pokedex/images/sugimori/650.png",
+    "type": "Grass"
+  },
+  {
     "id": "20f1fa4e-ad70-42c7-8b8d-c433971ea18d",
     "name": "Magneton",
     "height": 1,
@@ -52,6 +60,22 @@ const mockResponse = [
     "weight": 6,
     "picture": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg",
     "type": "Electric"
+  },
+  {
+    "id": "366a2280-d5ca-4579-932a-322befcd2ce0",
+    "name": "Sandshrew",
+    "height": 0.6,
+    "weight": 12,
+    "picture": "https://archives.bulbagarden.net/media/upload/thumb/9/9e/027Sandshrew.png/500px-027Sandshrew.png",
+    "type": "Sand"
+  },
+  {
+    "id": "3b64532f-dca8-4a37-b5b1-17728a71717e",
+    "name": "Zéroïd",
+    "height": 1.2,
+    "weight": 55.5,
+    "picture": "https://www.pokemontrash.com/pokedex/images/sugimori/793.png",
+    "type": "Poison"
   },
   {
     "id": "492b9daf-22d6-4da8-abf8-54bf73f6ccfc",

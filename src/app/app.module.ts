@@ -9,6 +9,7 @@ import {PokemonListComponent} from "./modules/pokemon/components/pokemon-list/po
 import {PokemonDetailComponent} from "./modules/pokemon/components/pokemon-detail/pokemon-detail.component";
 import {LoginComponent} from "./modules/login/components/login/login.component";
 import {LoginModule} from "./modules/login/login.module";
+import {NotifierModule} from "angular-notifier";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {LoginModule} from "./modules/login/login.module";
   imports: [
     BrowserModule,
     NgbModule,
+    NotifierModule,
     PokemonModule,
     LoginModule,
     RouterModule.forRoot([

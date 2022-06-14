@@ -12,9 +12,9 @@ export class PokemonService {
 
   constructor(private httpClient: HttpClient) {
   }
+
   getPokemon(): Observable<PokemonInterface[]> {
-    // @ts-ignore
-    return this.httpClient.get(`${environment.apiUrl}/items/pokemon`).pipe(map(result => result.data))
+    return this.httpClient.get(`${environment.apiUrl}/items/pokemon`).pipe(map((result: any) => result.data))
   }
 
   getSelectedPokemon(): PokemonInterface | undefined {

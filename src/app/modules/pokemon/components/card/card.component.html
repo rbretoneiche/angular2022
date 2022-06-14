@@ -6,7 +6,10 @@
     <div class="avatar-img" [style.background-image]="'url(' + pokemon.picture + ')'"></div>
   </div>
   <div class="card-body">
-    <h5 class="card-title" style="color: {{pokemon.type | typeColor : pokemon.name}}">{{pokemon.name}}</h5>
+    <h5 class="card-title"
+        [style.color]="pokemon.type | typeColor : pokemon.name">
+      {{pokemon.name}}
+    </h5>
     <p class="card-text">Weight : {{pokemon.weight}} gramms</p>
     <p class="card-text">Height : {{pokemon.height}} cm</p>
   </div>

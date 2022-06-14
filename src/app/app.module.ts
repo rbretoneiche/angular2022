@@ -12,6 +12,7 @@ import {LoginModule} from "./modules/login/login.module";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {AuthInterceptor} from "./modules/login/interceptors/auth.interceptor";
 import {ErrorInterceptor} from "./modules/login/interceptors/error.interceptor";
+import {NotifierModule} from "angular-notifier";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {ErrorInterceptor} from "./modules/login/interceptors/error.interceptor";
   imports: [
     BrowserModule,
     NgbModule,
+    NotifierModule,
     PokemonModule,
     LoginModule,
     RouterModule.forRoot([

@@ -6,10 +6,12 @@
     <button class="btn btn-outline-warning" type="button" (click)="logout()">Se déconnecter</button>
   </nav>
 </div>
-<div class="row" data-cy="pokemon-list">
+<div class="row" data-cy="pokemon-list" *ngIf="myPokemons$|async as myPokemons">
   <app-card class="col" *ngFor="let pokemon of pokemons$|async; trackBy:trackByIdentity"
             [pokemon]="pokemon"
+            [isMine]="myPokemons.indexOf(pokemon.id) >= 0"
             [selectedPokemon]="selectedPokemon"
-            (selectedPokemonChanges)="handlePokemonChange($event)">
+            (selectedPokemonChanges)="handlePokemonChange($event)"
+            (catchPokemonEvent)="handleCatchPokemon($event)">
   </app-card>
 </div>

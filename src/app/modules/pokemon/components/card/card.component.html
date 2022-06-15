@@ -1,5 +1,4 @@
 <div class="card" *ngIf="pokemon" [ngClass]="{'border-primary': selectedPokemon === pokemon}" (click)="handleClick()"
-     [routerLink]="'/pokemon/' + pokemon.name"
      appHoverBackground>
   <img class="card-img-top" src="assets/background.png" alt="Card image cap">
   <div class="avatar">
@@ -12,8 +11,10 @@
     </h5>
     <p class="card-text">Weight : {{pokemon.weight}} gramms</p>
     <p class="card-text">Height : {{pokemon.height}} cm</p>
+    <button class="btn btn-primary" *ngIf="!isMine" (click)="catch($event)">Attraper</button>
   </div>
-  <div class="card-footer">
+  <div class="card-header">
     <small class="text-muted">Pokemon type : {{pokemon.type}}</small>
   </div>
+  {{isMine}}
 </div>

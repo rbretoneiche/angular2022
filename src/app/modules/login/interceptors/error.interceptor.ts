@@ -25,8 +25,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         if (err.status === 401 || err.status === 403) {
           this.laertService.error(AlertEnum.notAuthorized)
           this.authService.logout();
-          this.router.navigateByUrl(`/login`);
-          return of(err.message);
+          return of(err);
         }
         return throwError(err)
       }

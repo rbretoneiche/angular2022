@@ -7,14 +7,31 @@
             <h3 class="mb-5">Pokemon Log in</h3>
             <div class="form-outline mb-4">
               <label class="form-label" for="typeEmailX-2">Email</label>
-              <input type="email" formControlName="email" id="typeEmailX-2" class="form-control form-control-lg"/>
+              <div class="input-group">
+                <input type="email" formControlName="email" id="typeEmailX-2"
+                       class="form-control form-control-lg"
+                       [ngClass]="{
+                       'is-invalid': loginForm.controls['email'].invalid,
+                       'is-valid': loginForm.controls['email'].valid
+                       }"/>
+                <div *ngIf="loginForm.controls['email'].invalid" class="invalid-feedback">
+                  Veuillez renseigner un email valide
+                </div>
+                <div *ngIf="loginForm.controls['email'].valid" class="valid-feedback">
+                  Bien joué
+                </div>
+              </div>
             </div>
             <div class="form-outline mb-4">
               <label class="form-label" for="typePasswordX-2">Password</label>
               <input type="password" formControlName="password" id="typePasswordX-2"
                      class="form-control form-control-lg"/>
             </div>
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+            <button [disabled]="loginForm.invalid"
+                    class="btn btn-primary btn-lg btn-block"
+                    type="submit">
+              Login
+            </button>
             <div> {{loginForm.value|json}}</div>
             <div> {{authData$|async|json}}</div>
           </form>

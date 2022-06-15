@@ -17,9 +17,8 @@ export class LoginComponent {
   })
 
   submit() {
-    console.log('ici')
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value)
+      this.notifierService.notify('success', `Bonjour à toi ${this.loginForm.value.email}`)
     }
   }
 }

@@ -2,7 +2,6 @@ import {Component, OnDestroy} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthInterface, AuthService} from "../../services/auth.service";
 import {Observable, Subscription} from "rxjs";
-import {Router} from "@angular/router";
 import {NotifierService} from "angular-notifier";
 import {AlertService} from "../../../../services/alert.service";
 import {AlertEnum} from "../../../../enums/alert.enum";

@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {NotifierService} from "angular-notifier";
+import {AlertService} from "../../../../services/alert.service";
+import {AlertEnum} from "../../../../enums/alert.enum";
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,7 @@ import {NotifierService} from "angular-notifier";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private notifierService: NotifierService) {
+  constructor(private alertService: AlertService) {
   }
 
   loginForm = new FormGroup({
@@ -18,7 +20,7 @@ export class LoginComponent {
 
   submit() {
     if (this.loginForm.valid) {
-      this.notifierService.notify('success', `Bonjour à toi ${this.loginForm.value.email}`)
+      this.alertService.success(AlertEnum.welcome);
     }
   }
 }

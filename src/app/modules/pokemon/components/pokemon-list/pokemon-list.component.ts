@@ -4,6 +4,8 @@ import {PokemonInterface} from "../../interfaces/pokemon.interface";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 import {AuthService} from "../../../login/services/auth.service";
+import {AlertService} from "../../../../services/alert.service";
+import {AlertEnum} from "../../../../enums/alert.enum";
 
 @Component({
   selector: 'app-pokemon-list',

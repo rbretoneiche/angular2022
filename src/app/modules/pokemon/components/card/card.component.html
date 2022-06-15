@@ -13,8 +13,7 @@
     <p class="card-text">Height : {{pokemon.height}} cm</p>
     <button class="btn btn-primary" *ngIf="!isMine" (click)="catch($event)">Attraper</button>
   </div>
-  <div class="card-header">
+  <div class="card-footer">
     <small class="text-muted">Pokemon type : {{pokemon.type}}</small>
   </div>
-  {{isMine}}
 </div>

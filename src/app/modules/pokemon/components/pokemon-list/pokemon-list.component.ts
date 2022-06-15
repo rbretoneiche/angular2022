@@ -3,6 +3,8 @@ import {PokemonService} from "../../services/pokemon.service";
 import {PokemonInterface} from "../../interfaces/pokemon.interface";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {AlertService} from "../../../../services/alert.service";
+import {AlertEnum} from "../../../../enums/alert.enum";
 
 @Component({
   selector: 'app-pokemon-list',
@@ -10,7 +12,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./pokemon-list.component.scss']
 })
 export class PokemonListComponent implements OnInit {
-  constructor(private pokemonService: PokemonService) {
+  constructor(private pokemonService: PokemonService,
+              private alertService: AlertService) {
   }
 
   pokemons$?: Observable<PokemonInterface[]>;

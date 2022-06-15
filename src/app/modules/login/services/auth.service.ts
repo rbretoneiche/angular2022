@@ -17,7 +17,8 @@ export interface AuthInterface {
 })
 export class AuthService {
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private router: Router
+  ) {
   }
 
   get authToken(): string {
@@ -44,6 +45,7 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.clear()
+    localStorage.clear();
+    this.router.navigateByUrl(`/login`);
   }
 }

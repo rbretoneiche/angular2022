@@ -3,6 +3,7 @@ import {PokemonInterface} from "../interfaces/pokemon.interface";
 import {HttpClient} from "@angular/common/http";
 import {map, Observable, tap} from "rxjs";
 import {environment} from "../../../../environments/environment";
+import {AuthService} from "../../login/services/auth.service";
 import {AlertService} from "../../../services/alert.service";
 import {AlertEnum} from "../../../enums/alert.enum";
 
@@ -19,7 +20,6 @@ export class PokemonService {
     return this.httpClient.get(`${environment.apiUrl}/items/pokemon`)
       .pipe(map((result: any) => result.data),
         tap((pokemonList: PokemonInterface[]) => this.alertService.info(`${pokemonList.length} ${AlertEnum.fetched}`)))
-
   }
 
   getSelectedPokemon(): PokemonInterface | undefined {

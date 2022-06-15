@@ -12,7 +12,7 @@ import {AlertEnum} from "../../../../enums/alert.enum";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private alertService: AlertService) {
+  constructor(private alertService: AlertService, private authService: AuthService) {
   }
 
   loginForm = new FormGroup({
@@ -22,12 +22,9 @@ export class LoginComponent {
 
   authData$?: Observable<AuthInterface>
 
-  constructor(private notifierService: NotifierService, private authService: AuthService) {
-  }
-
-  submit() {
+  async submit() {
     if (this.loginForm.valid) {
-      this.alertService.success(AlertEnum.welcome);
+      this.authData$ = this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
     }
   }
 }

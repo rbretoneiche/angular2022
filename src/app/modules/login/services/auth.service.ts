@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../../environments/environment";
 import {map, Observable, take} from "rxjs";
+import {Router} from "@angular/router";
 
 export interface AuthInterface {
   data: {
@@ -16,7 +17,8 @@ export interface AuthInterface {
 })
 export class AuthService {
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private router: Router
+  ) {
   }
 
   get authToken(): string {
@@ -40,6 +42,7 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.clear()
+    localStorage.clear();
+    this.router.navigateByUrl(`/login`);
   }
 }

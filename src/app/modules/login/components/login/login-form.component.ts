@@ -12,7 +12,7 @@ import {AlertEnum} from "../../../../enums/alert.enum";
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })
-export class LoginComponent {
+export class LoginFormComponent {
   constructor(private alertService: AlertService, private authService: AuthService, private router: Router) {
   }
 

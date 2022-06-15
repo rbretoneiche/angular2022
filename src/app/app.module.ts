@@ -23,7 +23,20 @@ import {NotifierModule} from "angular-notifier";
   imports: [
     BrowserModule,
     NgbModule,
-    NotifierModule,
+    NotifierModule.withConfig({
+      position: {
+
+        horizontal: {
+          position: 'right',
+        },
+        vertical: {
+          position: 'top'
+        }
+      },
+      behaviour: {
+        autoHide: 5000,
+      }
+    }),
     PokemonModule,
     LoginModule,
     RouterModule.forRoot([

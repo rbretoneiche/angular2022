@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })
-export class LoginComponent implements OnDestroy {
+export class LoginFormComponent implements OnDestroy {
   constructor(private alertService: AlertService, private authService: AuthService, private router: Router) {
   }
 

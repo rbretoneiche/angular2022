@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../../environments/environment";
-import {map, Observable, take} from "rxjs";
+import {BehaviorSubject, map, Observable, take} from "rxjs";
 import {Router} from "@angular/router";
 
 export interface AuthInterface {
@@ -16,9 +16,11 @@ export interface AuthInterface {
   providedIn: 'root'
 })
 export class AuthService {
+  userIsLogged$ = new BehaviorSubject<boolean>(false);
 
   constructor(private httpClient: HttpClient, private router: Router
   ) {
+    this.userIsLogged$.next(!!this.authToken.length)
   }
 
   get authToken(): string {
@@ -38,6 +40,7 @@ export class AuthService {
         const authData = result as AuthInterface;
         if (authData.data.access_token) {
           localStorage.setItem('pokemon-token', authData.data.access_token);
+          this.userIsLogged$.next(!!this.authToken.length)
           return authData;
         }
         return null;
@@ -46,6 +49,7 @@ export class AuthService {
 
   logout() {
     localStorage.clear();
+    this.userIsLogged$.next(!!this.authToken.length)
     this.router.navigateByUrl(`/login`);
   }
 }

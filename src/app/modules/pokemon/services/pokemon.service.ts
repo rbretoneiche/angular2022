@@ -13,13 +13,12 @@ import {AlertEnum} from "../../../enums/alert.enum";
 export class PokemonService {
   private selectedPokemon?: PokemonInterface;
 
-  constructor(private httpClient: HttpClient, private alertService: AlertService) {
+  constructor(private httpClient: HttpClient) {
   }
 
   getPokemon(): Observable<PokemonInterface[]> {
     return this.httpClient.get(`${environment.apiUrl}/items/pokemon`)
-      .pipe(map((result: any) => result.data),
-        tap((pokemonList: PokemonInterface[]) => this.alertService.info(`${pokemonList.length} ${AlertEnum.fetched}`)))
+      .pipe(map((result: any) => result.data));
   }
 
   getById(id: string): Observable<PokemonInterface> {

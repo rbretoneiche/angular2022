@@ -1,4 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {PokemonService} from "./modules/pokemon/services/pokemon.service";
+import {AuthService} from "./modules/login/services/auth.service";
+import {Router} from "@angular/router";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -6,4 +10,6 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+
 }

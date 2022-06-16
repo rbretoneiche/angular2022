@@ -22,6 +22,11 @@ export class PokemonService {
         tap((pokemonList: PokemonInterface[]) => this.alertService.info(`${pokemonList.length} ${AlertEnum.fetched}`)))
   }
 
+  getById(id: string): Observable<PokemonInterface> {
+    return this.httpClient.get(`${environment.apiUrl}/items/pokemon/${id}`)
+      .pipe(map((result: any) => result.data));
+  }
+
   getSelectedPokemon(): PokemonInterface | undefined {
     return this.selectedPokemon;
   }

@@ -7,6 +7,7 @@ import {PokemonDetailComponent} from './components/pokemon-detail/pokemon-detail
 import {RouterModule} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import { TypeColorPipe } from './pipes/type-color.pipe';
+import { PokemonHistoryComponent } from './components/pokemon-history/pokemon-history.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { TypeColorPipe } from './pipes/type-color.pipe';
     PokemonListComponent,
     PokemonDetailComponent,
     TypeColorPipe,
+    PokemonHistoryComponent,
   ],
   exports: [
     CardComponent

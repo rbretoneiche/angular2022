@@ -13,7 +13,7 @@ import {AlertEnum} from "../../../../enums/alert.enum";
   styleUrls: ['./pokemon-list.component.scss']
 })
 export class PokemonListComponent implements OnInit {
-  constructor(private pokemonService: PokemonService, private authService: AuthService, private router: Router) {
+  constructor(private pokemonService: PokemonService) {
   }
 
   pokemons$?: Observable<PokemonInterface[]>;
@@ -27,10 +27,5 @@ export class PokemonListComponent implements OnInit {
   handlePokemonChange(pokemon: PokemonInterface) {
     this.pokemonService.selectPokemon(pokemon);
     this.selectedPokemon = this.pokemonService.getSelectedPokemon()
-  }
-
-  logout(): void {
-    this.authService.logout();
-    this.router.navigateByUrl('/login');
   }
 }

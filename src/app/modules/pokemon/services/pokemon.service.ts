@@ -6,6 +6,7 @@ import {environment} from "../../../../environments/environment";
 import {AuthService} from "../../login/services/auth.service";
 import {AlertService} from "../../../services/alert.service";
 import {AlertEnum} from "../../../enums/alert.enum";
+import {UserHasPokemonInterface} from "../interfaces/user-has-pokemon.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,15 @@ export class PokemonService {
 
   selectPokemon(pokemon: PokemonInterface) {
     this.selectedPokemon = pokemon
+  }
+
+  ownPokemon(pokemon: PokemonInterface) {
+    return this.httpClient.post(`${environment.apiUrl}/items/user_has_pokemon`, {pokemonId: pokemon.id})
+      .pipe(map((result: any) => result.data))
+  }
+
+  getMyPokemons(): Observable<UserHasPokemonInterface[]> {
+    return this.httpClient.get(`${environment.apiUrl}/items/user_has_pokemon`)
+      .pipe(map((result: any) => result.data))
   }
 }

@@ -1,5 +1,5 @@
 <div class="card" *ngIf="pokemon" [ngClass]="{'border-primary': selectedPokemon === pokemon}" (click)="handleClick()"
-     [routerLink]="'/pokemon/' + pokemon.name"
+     [routerLink]="'/pokemon/' + pokemon.id"
      appHoverBackground>
   <img class="card-img-top" src="assets/background.png" alt="Card image cap">
   <div class="avatar">

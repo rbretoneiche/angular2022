@@ -1,5 +1,8 @@
-<div class="row">
-  <div class="col-12">
-    <h1> Bienvenue sur la page de <span class="badge bg-secondary"> {{pokemonName}} </span></h1>
+<div class="row"  *ngIf="pokemon$|async as pokemon">
+  <div class="col-5">
+    <app-card [pokemon]="pokemon"></app-card>
+  </div>
+  <div class="col">
+    <p [innerHTML]="pokemon.description"></p>
   </div>
 </div>

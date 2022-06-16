@@ -49,7 +49,7 @@ import { HeaderComponent } from './components/header/header.component';
         canActivate: [IsNotAuthenticatedGuard]
       },
       {
-        path: 'pokemon/:name',
+        path: 'pokemon/:id',
         component: PokemonDetailComponent,
         canActivate: [IsAuthenticatedGuard]
       },

@@ -1,7 +1,9 @@
 describe('Test pokemon app homepage', () => {
   it('Visits the initial project page', () => {
     cy.visit('/login')
-    cy.get('[data-cy=login-email-input]').type('sacha1@pokemon-form.fr')
+    cy.get('[data-cy=login-email-input]')
+      .should('exist')
+      .type('sacha1@pokemon-form.fr')
     cy.get('[data-cy=login-password-input]').type('123456789')
     cy.get('[data-cy=login-submit-btn]').click().then(() => {
       cy.wait(3000)

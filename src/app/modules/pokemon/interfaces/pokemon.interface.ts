@@ -5,4 +5,5 @@ export interface PokemonInterface {
   height: number
   type: string
   picture: string
+  description: string
 }

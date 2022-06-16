@@ -44,7 +44,7 @@ import { HeaderComponent } from './components/header/header.component';
     LoginModule,
     RouterModule.forRoot([
       {
-        path: 'pokemon/:name',
+        path: 'pokemon/:id',
         component: PokemonDetailComponent,
         canActivate: [IsAuthenticatedGuard]
       },

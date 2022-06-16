@@ -1,5 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {PokemonService} from "../../services/pokemon.service";
+import {Observable} from "rxjs";
+import {PokemonInterface} from "../../interfaces/pokemon.interface";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -7,13 +11,15 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./pokemon-detail.component.scss']
 })
 export class PokemonDetailComponent implements OnInit {
-  pokemonName?: string;
+  pokemonId?: string;
+  pokemon$?: Observable<PokemonInterface>
+  danger = 'J\'ai un script<script>alert("coucou")</script>'
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private pokemonService: PokemonService, private sanitizer: DomSanitizer) {
   }
 
   ngOnInit(): void {
-    this.pokemonName = this.route.snapshot.paramMap.get('name') || '';
+    this.pokemonId = this.route.snapshot.paramMap.get('id') || '';
+    this.pokemon$ = this.pokemonService.getById(this.pokemonId)
   }
-
 }

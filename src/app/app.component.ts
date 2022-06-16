@@ -9,18 +9,7 @@ import {BehaviorSubject} from "rxjs";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  userIsLogged$ = new BehaviorSubject<boolean>(false);
+export class AppComponent {
 
-  constructor(private authService: AuthService, private router: Router) {
-  }
 
-  logout(): void {
-    this.authService.logout();
-    this.router.navigateByUrl('/login');
-  }
-
-  ngOnInit(): void {
-    this.userIsLogged$ = this.authService.userIsLogged$;
-  }
 }

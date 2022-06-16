@@ -16,10 +16,12 @@ import {IsNotAuthenticatedGuard} from "./guards/is-not-authenticated.guard";
 import {ErrorInterceptor} from "./modules/login/interceptors/error.interceptor";
 import {NotifierModule} from "angular-notifier";
 import {PokemonHistoryComponent} from "./modules/pokemon/components/pokemon-history/pokemon-history.component";
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

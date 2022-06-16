@@ -8,6 +8,9 @@ import {RouterModule} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import { TypeColorPipe } from './pipes/type-color.pipe';
 import { PokemonHistoryComponent } from './components/pokemon-history/pokemon-history.component';
+import { HistoryOneComponent } from './components/pokemon-history/components/history-one/history-one.component';
+import { HistoryTwoComponent } from './components/pokemon-history/components/history-two/history-two.component';
+import { HistoryThreeComponent } from './components/pokemon-history/components/history-three/history-three.component';
 
 
 @NgModule({
@@ -18,6 +21,9 @@ import { PokemonHistoryComponent } from './components/pokemon-history/pokemon-hi
     PokemonDetailComponent,
     TypeColorPipe,
     PokemonHistoryComponent,
+    HistoryOneComponent,
+    HistoryTwoComponent,
+    HistoryThreeComponent,
   ],
   exports: [
     CardComponent

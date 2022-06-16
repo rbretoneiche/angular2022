@@ -7,7 +7,7 @@
   </div>
   <div class="card-body">
     <h5 class="card-title"
-        [style.color]="pokemon.type | typeColor : pokemon.name">
+        [style.color]="pokemon.type | typeColor : pokemon.name" data-cy="pokemon-name">
       {{pokemon.name}}
     </h5>
     <p class="card-text">Weight : {{pokemon.weight}} gramms</p>

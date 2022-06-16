@@ -1,5 +1,5 @@
 on: push
-name: Build Angular
+name: Pokemon Worflow
 jobs:
   build:
     runs-on: ubuntu-latest
